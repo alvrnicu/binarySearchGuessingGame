@@ -1,0 +1,44 @@
+import random
+import math
+
+guessingGame = True
+bottom = 0
+top = 100
+bottomRange = bottom
+topRange = top
+guessedCorrectly = False
+
+while guessingGame == True and guessedCorrectly == False:
+    bottomRange = bottom
+    topRange = top
+    print('Choose a number between 0 and 100: ')
+    myNumber = int(input())
+    maxTries = math.ceil(math.log2((top - bottom) + 1))
+    print("Max Tries: " + str(maxTries))
+    computersGuess = int((topRange - bottomRange) / 2)
+    print('My guess is...', computersGuess)
+    tries = 1
+    hotOrcold = None
+
+    while hotOrcold != myNumber and tries <= maxTries:
+        hotOrcold = input("Is my guess larger, smaller, or correct? ")
+        if hotOrcold == 'smaller' and computersGuess < myNumber:
+            bottomRange = int((topRange + bottomRange) / 2)
+            print("Bottom range: " + str(bottomRange))
+            computersGuess = int((topRange +  bottomRange) / 2)
+            print('My guess is...' + str(computersGuess))
+            tries += 1
+        elif hotOrcold == 'larger' and computersGuess > myNumber:
+            topRange = int((topRange + bottomRange) / 2)
+            print("Top range: " + str(topRange))
+            computersGuess = int((topRange +  bottomRange) / 2)
+            print('My guess is...' + str(computersGuess))
+            tries += 1
+        elif hotOrcold == 'correct' and computersGuess == myNumber:
+            print("It looks like I got it right! Woo!")
+            hotOrcold = myNumber
+            guessedCorrectly = True
+        else:
+            print("I know you're lying, little brat :)")
+    if guessedCorrectly == False:
+        print("Looks like I ran out of tries :(")
