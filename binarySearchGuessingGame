@@ -25,11 +25,11 @@ def guessingGame():
         # HOWTO? Binary Search
         # in order to find something, we will split to see if it is in a left half (guess > middle) or right half (guess < middle)
         if my_number > computers_guess:
-            print('my Number was larger than the guess.')
+            print('my Number was less than the guess.')
             bottom_range = computers_guess + 1
             max_tries -= 1
         elif my_number < computers_guess:
-            print('my Number was less than the guess.')
+            print('my Number was greater than the guess.')
             top_range = computers_guess - 1
             max_tries -= 1
         tries += 1
