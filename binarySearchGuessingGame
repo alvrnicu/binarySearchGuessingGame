@@ -38,7 +38,7 @@ def guessingGame():
         print(f'the computer guessed my_number correctly in {tries - 1} tries! Computer wins!')
     else:
         print(f'computer failed to guess in {tries - 1} tries')
-    print(f'tries left: {max_tries}')
+        print(f'tries left: {max_tries}')
 
 def main():
     print('Alvin\'s guessing game')
